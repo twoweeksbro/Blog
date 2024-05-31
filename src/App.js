@@ -9,7 +9,7 @@ import { useState } from 'react';
 function App() {
 
   let post = '강남 우동 맛집';
-  let [글제목, b] = useState(['강남 코트 추천','리액트','파이썬']);
+  let [글제목, 글제목변경] = useState(['강남 코트 추천','리액트','파이썬']);
   let [logo, setLogo] = useState('ReactBlog');
   let [따봉, 따봉변경] = useState(0);
 
@@ -20,8 +20,12 @@ function App() {
   }
 
   function 제목변경함수(){
-    b(['여자 코트 추천','리액트','파이썬'])
+  //  글제목변경(['여자 코트 추천','리액트','파이썬'])
+    let copy = [...글제목];
+    copy[0]='여자코트 추천';
+    글제목변경(copy);
   }
+  
 
   let num = [1,2];
   let e = num[0];
@@ -35,6 +39,11 @@ function App() {
       <div className="black-nav">
         <h4 style={{color: 'red', fontSize: '16px'}}>{logo}</h4>
       </div>
+      <button onClick={()=>{
+        let copy = [...글제목];
+        copy.sort();
+        글제목변경(copy);
+      }}>가나다순정렬</button>
       <div className="list">
         <h4>{ 글제목[0]} <span onClick={함수}>👍</span> {따봉} </h4>
         <h4>글제목</h4>
