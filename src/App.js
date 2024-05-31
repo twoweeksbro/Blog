@@ -6,6 +6,7 @@ import './App.css';
 import { useState } from 'react';
 
 
+
 function App() {
 
   let post = '강남 우동 맛집';
@@ -60,8 +61,23 @@ function App() {
         <p>5월 30일 발행</p>
       </div>
       <h4> { post } </h4>
+      <Modal></Modal>
+      <Modal/>
     </div>
   );
 }
+
+function Modal(){
+  return (
+    <>
+    <div className="modal">
+        <h4>제목</h4>
+        <p>날짜</p>
+        <p>상세내용</p>
+      </div>
+    </>
+  )
+}
+
 
 export default App;
